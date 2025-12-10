@@ -4,11 +4,13 @@ import Ionicons from '@expo/vector-icons/Ionicons';
 import { useState } from 'react';
 import { useRouter } from 'expo-router';
 import DateTimePicker from '@react-native-community/datetimepicker';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 const bloodTypes = ['A+', 'A-', 'B+', 'B-', 'AB+', 'AB-', 'O+', 'O-'];
 
 export default function CreateDonationScreen() {
   const router = useRouter();
+  const insets = useSafeAreaInsets();
   const [bloodGroup, setBloodGroup] = useState<string>('');
   const [donationDate, setDonationDate] = useState<Date | null>(null);
   const [showDatePicker, setShowDatePicker] = useState(false);
@@ -38,18 +40,26 @@ export default function CreateDonationScreen() {
         style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0 }}
       />
 
-      <ScrollView className="flex-1" contentContainerStyle={{ flexGrow: 1 }}>
-        <View className="flex-1 px-6 pt-20 pb-10">
-          {/* Header */}
-          <View className="mb-6 flex-row items-center">
-            <Pressable
-              onPress={() => router.back()}
-              className="mr-3 h-10 w-10 items-center justify-center rounded-full bg-white/20">
-              <Ionicons name="arrow-back" size={24} color="#ffffff" />
-            </Pressable>
-            <Text className="text-2xl font-black text-white">Create Donation</Text>
-          </View>
+      {/* Fixed Header */}
+      <View
+        className="px-6"
+        style={{
+          paddingTop: Math.max(insets.top, 20),
+          paddingBottom: 16,
+          zIndex: 10,
+        }}>
+        <View className="flex-row items-center">
+          <Pressable
+            onPress={() => router.back()}
+            className="mr-3 h-10 w-10 items-center justify-center rounded-full bg-white/20">
+            <Ionicons name="arrow-back" size={24} color="#ffffff" />
+          </Pressable>
+          <Text className="text-2xl font-black text-white">Create Donation</Text>
+        </View>
+      </View>
 
+      <ScrollView className="flex-1" contentContainerStyle={{ flexGrow: 1 }}>
+        <View className="flex-1 px-6 pb-10">
           {/* Form Card */}
           <View className="rounded-[40px] bg-white px-8 py-10">
             <View className="mb-8">
