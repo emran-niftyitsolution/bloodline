@@ -33,7 +33,7 @@ export default function ForgotPasswordScreen() {
           </View>
 
           {/* Form Card */}
-          <View className="rounded-[40px] bg-white px-6 pb-8 pt-10">
+          <View className="rounded-[40px] bg-white px-8 pb-8 pt-10">
             <View className="mb-8">
               <Text className="mb-1 text-2xl font-bold text-gray-900">Forgot Password</Text>
               <Text className="text-base text-gray-500">

@@ -66,18 +66,18 @@ export default function DonationHistoryScreen() {
           paddingBottom: 16,
           zIndex: 10,
         }}>
-        <View className="flex-row items-center justify-between">
+          <View className="flex-row items-center justify-between">
           <Pressable
             onPress={() => router.back()}
             className="h-10 w-10 items-center justify-center rounded-full bg-white/20">
             <Ionicons name="arrow-back" size={24} color="#ffffff" />
           </Pressable>
           <View className="flex-1 px-3">
-            <Text className="text-2xl font-black text-white">History</Text>
+            <Text className="text-3xl font-black text-white">History</Text>
           </View>
           <Pressable
             onPress={() => router.push('/create-donation')}
-            className="overflow-hidden rounded-xl border border-[#dc2626] bg-white active:opacity-90">
+            className="overflow-hidden rounded-xl border border-white/30 bg-white/20 active:opacity-90">
             <View
               style={{
                 paddingVertical: 10,
@@ -86,8 +86,8 @@ export default function DonationHistoryScreen() {
                 justifyContent: 'center',
               }}>
               <View className="flex-row items-center">
-                <Ionicons name="add-circle" size={20} color="#dc2626" />
-                <Text className="ml-1 text-center text-base font-bold text-[#dc2626]">Create</Text>
+                <Ionicons name="add-circle" size={20} color="#ffffff" />
+                <Text className="ml-1 text-center text-base font-bold text-white">Create</Text>
               </View>
             </View>
           </Pressable>

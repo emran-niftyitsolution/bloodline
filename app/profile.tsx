@@ -60,7 +60,7 @@ export default function ProfileScreen() {
               className="mr-3 h-10 w-10 items-center justify-center rounded-full bg-white/20">
               <Ionicons name="arrow-back" size={24} color="#ffffff" />
             </Pressable>
-            <Text className="text-2xl font-black text-white">Profile</Text>
+            <Text className="text-3xl font-black text-white">Profile</Text>
           </View>
           <Pressable
             onPress={() => setIsEditing(!isEditing)}
@@ -75,7 +75,7 @@ export default function ProfileScreen() {
       <ScrollView className="flex-1" contentContainerStyle={{ flexGrow: 1 }}>
         <View className="flex-1 px-6 pb-10">
           {/* Profile Card */}
-          <View className="rounded-[40px] bg-white px-8 py-10">
+          <View className="rounded-3xl bg-white px-8 py-10">
             {/* Profile Picture Section */}
             <View className="mb-8 items-center">
               <View className="mb-4 h-32 w-32 items-center justify-center rounded-full bg-red-100">

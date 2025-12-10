@@ -1,13 +1,21 @@
-import { View, Text, ScrollView, Pressable } from 'react-native';
+import { View, Text, ScrollView, Pressable, Image } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import Ionicons from '@expo/vector-icons/Ionicons';
+import { StatusBar } from 'expo-status-bar';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useRouter } from 'expo-router';
 
 export default function SettingsScreen() {
   const router = useRouter();
+  const insets = useSafeAreaInsets();
+
+  // Mock user data - in real app, this would come from your backend/state
+  const userName = 'John Doe';
+  const userEmail = 'john.doe@example.com';
 
   return (
     <View className="flex-1">
+      <StatusBar style="light" translucent backgroundColor="transparent" />
       <LinearGradient
         colors={['#dc2626', '#991b1b', '#7f1d1d']}
         start={{ x: 0, y: 0 }}
@@ -15,22 +23,37 @@ export default function SettingsScreen() {
         style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0 }}
       />
 
+      {/* Fixed Header */}
+      <View
+        className="px-6"
+        style={{
+          paddingTop: Math.max(insets.top, 20),
+          paddingBottom: 16,
+          zIndex: 10,
+        }}>
+        <View className="flex-row items-center">
+          <View className="mr-3 h-12 w-12 items-center justify-center rounded-full bg-white/20">
+            <Ionicons name="settings-outline" size={28} color="#ffffff" />
+          </View>
+          <Text className="text-3xl font-black text-white">Settings</Text>
+        </View>
+      </View>
+
       <ScrollView className="flex-1" contentContainerStyle={{ flexGrow: 1 }}>
-        <View className="flex-1 px-6 pt-20 pb-10">
-          {/* Header */}
-          <View className="mb-8 items-center">
-            <View className="mb-4 h-20 w-20 items-center justify-center rounded-full bg-white">
-              <Ionicons name="settings-outline" size={44} color="#dc2626" />
+        <View className="px-6 pb-10">
+          {/* Profile Section */}
+          <View className="mb-6 rounded-3xl bg-white px-8 py-6">
+            <View className="items-center">
+              <View className="mb-4 h-24 w-24 items-center justify-center overflow-hidden rounded-full bg-gray-200">
+                <Ionicons name="person" size={48} color="#dc2626" />
+              </View>
+              <Text className="mb-1 text-2xl font-bold text-gray-900">{userName}</Text>
+              <Text className="text-base text-gray-600">{userEmail}</Text>
             </View>
-            <Text className="mb-2 text-4xl font-black text-white">Settings</Text>
-            <Text className="text-lg font-medium text-white/80">
-              Manage your account preferences
-            </Text>
           </View>
 
           {/* Content Card */}
-          <View className="rounded-[40px] bg-white px-8 py-10">
-            <Text className="mb-6 text-2xl font-bold text-gray-900">Settings</Text>
+          <View className="rounded-3xl bg-white px-8 py-10">
 
             {/* Settings Options */}
             <View className="gap-y-4">

@@ -54,7 +54,7 @@ export default function CreateDonationScreen() {
             className="mr-3 h-10 w-10 items-center justify-center rounded-full bg-white/20">
             <Ionicons name="arrow-back" size={24} color="#ffffff" />
           </Pressable>
-          <Text className="text-2xl font-black text-white">Create Donation</Text>
+          <Text className="text-3xl font-black text-white">Create Donation</Text>
         </View>
       </View>
 

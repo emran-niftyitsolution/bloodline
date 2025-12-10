@@ -1,7 +1,7 @@
-import { View, Text, ScrollView, Pressable } from 'react-native';
-import { LinearGradient } from 'expo-linear-gradient';
 import Ionicons from '@expo/vector-icons/Ionicons';
+import { LinearGradient } from 'expo-linear-gradient';
 import { useRouter } from 'expo-router';
+import { Pressable, ScrollView, Text, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 const bloodTypes = ['A+', 'A-', 'B+', 'B-', 'AB+', 'AB-', 'O+', 'O-'];
@@ -86,50 +86,48 @@ export default function HomeScreen() {
           zIndex: 10,
         }}>
         <View className="flex-row items-center">
-          <View className="mr-3 h-12 w-12 items-center justify-center rounded-full bg-white">
-            <Ionicons name="water" size={28} color="#dc2626" />
+          <View className="mr-3 h-12 w-12 items-center justify-center rounded-full bg-white/20">
+            <Ionicons name="water" size={28} color="#ffffff" />
           </View>
-          <Text className="text-2xl font-black text-white">BloodBooth</Text>
+          <Text className="text-3xl font-black text-white">BloodBooth</Text>
         </View>
       </View>
 
       <ScrollView className="flex-1" contentContainerStyle={{ flexGrow: 1 }}>
         <View className="px-6 pb-10">
-
           {/* Donation Stats Card */}
-          <View className="mb-6 rounded-[40px] bg-white px-8 py-6">
-            <View className="flex-row items-start justify-between">
-              <View className="flex-1">
-                <Text className="text-sm font-medium text-gray-600">Total Donations</Text>
+          <View className="mb-6 rounded-3xl bg-white px-8 py-6">
+            <View className="w-full flex-row items-center justify-between">
+              <View>
+                <Text className="text-lg font-bold text-gray-700">Total Donations</Text>
                 <Text className="mt-1 text-3xl font-black text-[#dc2626]">{totalDonations}</Text>
-                {lastDonationDate && (
-                  <Text className="mt-2 text-sm text-gray-500">
-                    Last donation: {formatDate(lastDonationDate)}
-                  </Text>
-                )}
               </View>
-              <View className="ml-4">
-                {available ? (
-                  <View className="rounded-full bg-green-100 px-3 py-1.5">
-                    <View className="flex-row items-center">
-                      <Ionicons name="checkmark-circle" size={16} color="#10b981" />
-                      <Text className="ml-1 text-xs font-semibold text-green-700">
-                        Available
-                      </Text>
-                    </View>
+              {available ? (
+                <View className="rounded-full bg-green-100 px-3 py-1.5">
+                  <View className="flex-row items-center">
+                    <Ionicons name="checkmark-circle" size={16} color="#10b981" />
+                    <Text className="ml-1 text-xs font-semibold text-green-700">Available</Text>
                   </View>
-                ) : (
-                  <View className="rounded-full bg-yellow-100 px-3 py-1.5">
-                    <View className="flex-row items-center">
-                      <Ionicons name="time" size={16} color="#f59e0b" />
-                      <Text className="ml-1 text-xs font-semibold text-yellow-700">
-                        Not Available
-                      </Text>
-                    </View>
+                </View>
+              ) : (
+                <View className="rounded-full bg-yellow-100 px-3 py-1.5">
+                  <View className="flex-row items-center">
+                    <Ionicons name="time" size={16} color="#f59e0b" />
+                    <Text className="ml-1 text-xs font-semibold text-yellow-700">
+                      Not Available
+                    </Text>
                   </View>
-                )}
-              </View>
+                </View>
+              )}
             </View>
+
+            {lastDonationDate && (
+              <View className="mt-3 w-full">
+                <Text className="text-sm text-gray-500">
+                  Last donation: {formatDate(lastDonationDate)}
+                </Text>
+              </View>
+            )}
           </View>
 
           {/* Blood Type Grid */}
@@ -138,7 +136,7 @@ export default function HomeScreen() {
               <Pressable
                 key={bloodType}
                 onPress={() => router.push(`/donors/${bloodType}`)}
-                className="w-[45%] overflow-hidden rounded-xl border border-gray-200 bg-white active:opacity-80">
+                className="w-[48%] overflow-hidden rounded-3xl border border-gray-200 bg-white active:opacity-80">
                 <View
                   style={{
                     paddingVertical: 24,
@@ -159,4 +157,3 @@ export default function HomeScreen() {
     </View>
   );
 }
-

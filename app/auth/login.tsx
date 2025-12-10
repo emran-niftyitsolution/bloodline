@@ -10,7 +10,12 @@ export default function LoginScreen() {
   const insets = useSafeAreaInsets();
 
   return (
-    <View className="flex-1" style={{ paddingTop: insets.top || 0 }}>
+    <View
+      className="flex-1"
+      style={{
+        paddingTop: insets.top || 0,
+        paddingBottom: insets.bottom || 0,
+      }}>
       <StatusBar style="light" translucent backgroundColor="transparent" />
       <LinearGradient
         colors={['#dc2626', '#991b1b', '#7f1d1d']}
@@ -20,7 +25,7 @@ export default function LoginScreen() {
       />
 
       <ScrollView className="flex-1" contentContainerStyle={{ flexGrow: 1 }}>
-        <View className="flex-1 px-4 pb-10 pt-20">
+        <View className="flex-1 pb-10 pt-20">
           {/* Top Section with Logo */}
           <View className="mb-12 items-center">
             <View className="mb-8 h-20 w-20 items-center justify-center rounded-full bg-white">
@@ -33,7 +38,7 @@ export default function LoginScreen() {
           </View>
 
           {/* Form Card */}
-          <View className="rounded-[40px] bg-white px-6 pb-8 pt-10">
+          <View className="rounded-t-[40px] bg-white px-8 pb-8 pt-10">
             <View className="mb-8">
               <Text className="mb-1 text-2xl font-bold text-gray-900">Login</Text>
               <Text className="text-base text-gray-500">Enter your credentials below</Text>
@@ -43,7 +48,7 @@ export default function LoginScreen() {
               {/* Username Field */}
               <View>
                 <Text className="mb-2 text-sm font-semibold text-gray-700">Username</Text>
-                <View className="flex-row items-center rounded-xl border border-gray-200 bg-gray-50 px-4 py-4">
+                <View className="flex-row items-center rounded-xl border border-gray-200 bg-gray-50 px-4 py-3">
                   <Ionicons name="person-outline" size={20} color="#9ca3af" />
                   <TextInput
                     className="ml-3 flex-1 text-base text-gray-900"
@@ -57,7 +62,7 @@ export default function LoginScreen() {
               {/* Password Field */}
               <View>
                 <Text className="mb-2 text-sm font-semibold text-gray-700">Password</Text>
-                <View className="flex-row items-center rounded-xl border border-gray-200 bg-gray-50 px-4 py-4">
+                <View className="flex-row items-center rounded-xl border border-gray-200 bg-gray-50 px-4 py-3">
                   <Ionicons name="lock-closed-outline" size={20} color="#9ca3af" />
                   <TextInput
                     className="ml-3 flex-1 text-base text-gray-900"
