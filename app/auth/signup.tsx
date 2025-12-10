@@ -1,14 +1,17 @@
+import Ionicons from '@expo/vector-icons/Ionicons';
+import DateTimePicker from '@react-native-community/datetimepicker';
 import { LinearGradient } from 'expo-linear-gradient';
 import { Link, useRouter } from 'expo-router';
-import Ionicons from '@expo/vector-icons/Ionicons';
-import { Modal, Platform, Pressable, ScrollView, Text, TextInput, View } from 'react-native';
+import { StatusBar } from 'expo-status-bar';
 import { useState } from 'react';
-import DateTimePicker from '@react-native-community/datetimepicker';
+import { Modal, Platform, Pressable, ScrollView, Text, TextInput, View } from 'react-native';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 const bloodTypes = ['A+', 'A-', 'B+', 'B-', 'AB+', 'AB-', 'O+', 'O-'];
 
 export default function SignUpScreen() {
   const router = useRouter();
+  const insets = useSafeAreaInsets();
   const [gender, setGender] = useState<string>('');
   const [dateOfBirth, setDateOfBirth] = useState<Date | null>(null);
   const [showDatePicker, setShowDatePicker] = useState(false);
@@ -23,7 +26,8 @@ export default function SignUpScreen() {
   };
 
   return (
-    <View className="flex-1">
+    <View className="flex-1" style={{ paddingTop: insets.top || 0 }}>
+      <StatusBar style="light" translucent backgroundColor="transparent" />
       <LinearGradient
         colors={['#dc2626', '#991b1b', '#7f1d1d']}
         start={{ x: 0, y: 0 }}
@@ -32,7 +36,7 @@ export default function SignUpScreen() {
       />
 
       <ScrollView className="flex-1" contentContainerStyle={{ flexGrow: 1 }}>
-        <View className="flex-1 px-4 pt-20 pb-10">
+        <View className="flex-1 px-4 pb-10 pt-20">
           {/* Top Section with Logo */}
           <View className="mb-12 items-center">
             <View className="mb-8 h-20 w-20 items-center justify-center rounded-full bg-white">
@@ -45,7 +49,7 @@ export default function SignUpScreen() {
           </View>
 
           {/* Form Card */}
-          <View className="rounded-[40px] bg-white px-5 pt-10 pb-8">
+          <View className="rounded-[40px] bg-white px-6 pb-8 pt-10">
             <View className="mb-8">
               <Text className="mb-1 text-2xl font-bold text-gray-900">Sign Up</Text>
               <Text className="text-base text-gray-500">Create your account to get started</Text>
@@ -198,7 +202,7 @@ export default function SignUpScreen() {
                     <Pressable
                       key={type}
                       onPress={() => setBloodGroup(type)}
-                      className={`h-14 flex-1 min-w-[22%] items-center justify-center rounded-xl border ${
+                      className={`h-14 min-w-[22%] flex-1 items-center justify-center rounded-xl border ${
                         bloodGroup === type
                           ? 'border-[#dc2626] bg-red-50'
                           : 'border-gray-200 bg-gray-50'

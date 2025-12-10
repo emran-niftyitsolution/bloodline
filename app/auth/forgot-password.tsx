@@ -1,13 +1,17 @@
 import Ionicons from '@expo/vector-icons/Ionicons';
 import { LinearGradient } from 'expo-linear-gradient';
 import { Link, useRouter } from 'expo-router';
+import { StatusBar } from 'expo-status-bar';
 import { Pressable, ScrollView, Text, TextInput, View } from 'react-native';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 export default function ForgotPasswordScreen() {
   const router = useRouter();
+  const insets = useSafeAreaInsets();
 
   return (
-    <View className="flex-1">
+    <View className="flex-1" style={{ paddingTop: insets.top || 0 }}>
+      <StatusBar style="light" translucent backgroundColor="transparent" />
       <LinearGradient
         colors={['#dc2626', '#991b1b', '#7f1d1d']}
         start={{ x: 0, y: 0 }}
@@ -29,7 +33,7 @@ export default function ForgotPasswordScreen() {
           </View>
 
           {/* Form Card */}
-          <View className="rounded-[40px] bg-white px-5 pb-8 pt-10">
+          <View className="rounded-[40px] bg-white px-6 pb-8 pt-10">
             <View className="mb-8">
               <Text className="mb-1 text-2xl font-bold text-gray-900">Forgot Password</Text>
               <Text className="text-base text-gray-500">
