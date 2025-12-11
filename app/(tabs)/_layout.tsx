@@ -1,4 +1,5 @@
 import Ionicons from '@expo/vector-icons/Ionicons';
+import { LinearGradient } from 'expo-linear-gradient';
 import { Tabs } from 'expo-router';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
@@ -9,16 +10,25 @@ export default function TabsLayout() {
     <Tabs
       screenOptions={{
         headerShown: false,
-        tabBarActiveTintColor: '#dc2626',
-        tabBarInactiveTintColor: '#9ca3af',
+        tabBarActiveTintColor: '#ffffff',
+        tabBarInactiveTintColor: '#f3f4f6',
         tabBarStyle: {
-          backgroundColor: '#ffffff',
-          borderTopWidth: 1,
-          borderTopColor: '#e5e7eb',
-          paddingBottom: Math.max(insets.bottom, 8),
-          paddingTop: 8,
-          height: 60 + Math.max(insets.bottom - 8, 0),
+          backgroundColor: 'transparent',
+          borderTopWidth: 0,
+          elevation: 0,
+          shadowOpacity: 0,
+          paddingBottom: Math.max(insets.bottom, 10),
+          paddingTop: 10,
+          height: 64 + Math.max(insets.bottom - 10, 0),
         },
+        tabBarBackground: () => (
+          <LinearGradient
+            colors={['#dc2626', '#b91c1c', '#7f1d1d']}
+            start={{ x: 0, y: 0 }}
+            end={{ x: 1, y: 0 }}
+            style={{ flex: 1 }}
+          />
+        ),
       }}>
       <Tabs.Screen
         name="index"
