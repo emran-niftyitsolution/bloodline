@@ -1,14 +1,7 @@
-import { useEffect, useRef } from 'react';
-import {
-  Animated,
-  Easing,
-  Image,
-  Text,
-  View,
-  StyleSheet,
-} from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { useRouter } from 'expo-router';
+import { useEffect, useRef } from 'react';
+import { Animated, Easing, Image, StyleSheet, Text, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 export default function SplashScreen() {
@@ -54,7 +47,7 @@ export default function SplashScreen() {
     loop.start();
 
     const timeout = setTimeout(() => {
-      router.replace('/auth/login');
+      router.replace('/(auth)/login');
     }, 2200);
 
     return () => {
@@ -151,4 +144,3 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
 });
-

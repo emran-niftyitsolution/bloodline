@@ -41,20 +41,19 @@ export default function SignUpScreen() {
       />
 
       <ScrollView className="flex-1" contentContainerStyle={{ flexGrow: 1 }}>
-        <View className="flex-1 pb-10 pt-20">
+        <View className="flex-1 pb-10 pt-4">
           {/* Top Section with Logo */}
-          <View className="mb-12 items-center">
-            <View className="mb-8 h-20 w-20 items-center justify-center rounded-full bg-white">
-              <Ionicons name="water" size={44} color="#dc2626" />
+          <View className="items-center">
+            <View className="mb-6 flex-row items-center justify-center gap-x-2">
+              <View className="h-12 w-12 items-center justify-center rounded-full bg-white">
+                <Ionicons name="water" size={24} color="#dc2626" />
+              </View>
+              <Text className="text-3xl font-black text-white">BloodBooth</Text>
             </View>
-            <Text className="mb-3 text-5xl font-black text-white">BloodBooth</Text>
-            <Text className="text-lg font-medium text-white/80">
-              Become a hero and save lives today
-            </Text>
           </View>
 
           {/* Form Card */}
-          <View className="rounded-t-[40px] bg-white px-8 pb-8 pt-10">
+          <View className="rounded-3xl bg-white px-6 pb-8 pt-10">
             <View className="mb-8">
               <Text className="mb-1 text-2xl font-bold text-gray-900">Sign Up</Text>
               <Text className="text-base text-gray-500">Create your account to get started</Text>
@@ -374,7 +373,7 @@ export default function SignUpScreen() {
             {/* Sign In Link */}
             <View className="mt-8 flex-row justify-center gap-x-1">
               <Text className="text-base text-gray-600">Already have an account?</Text>
-              <Link href="/auth/login" className="text-base font-bold text-[#dc2626]">
+              <Link href="/(auth)/login" className="text-base font-bold text-[#dc2626]">
                 Sign In
               </Link>
             </View>

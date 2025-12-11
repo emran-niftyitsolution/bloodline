@@ -1,13 +1,21 @@
 import Ionicons from '@expo/vector-icons/Ionicons';
 import { LinearGradient } from 'expo-linear-gradient';
+import * as NavigationBar from 'expo-navigation-bar';
 import { Link, useRouter } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
-import { Pressable, ScrollView, Text, TextInput, View } from 'react-native';
+import { useEffect } from 'react';
+import { Platform, Pressable, ScrollView, Text, TextInput, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 export default function LoginScreen() {
   const router = useRouter();
   const insets = useSafeAreaInsets();
+
+  useEffect(() => {
+    if (Platform.OS === 'android') {
+      NavigationBar.setButtonStyleAsync('light').catch(() => undefined);
+    }
+  }, []);
 
   return (
     <View
@@ -25,20 +33,19 @@ export default function LoginScreen() {
       />
 
       <ScrollView className="flex-1" contentContainerStyle={{ flexGrow: 1 }}>
-        <View className="flex-1 pb-10 pt-20">
+        <View className="flex-1 pb-10 pt-4">
           {/* Top Section with Logo */}
-          <View className="mb-12 items-center">
-            <View className="mb-8 h-20 w-20 items-center justify-center rounded-full bg-white">
-              <Ionicons name="water" size={44} color="#dc2626" />
+          <View className="items-center">
+            <View className="flex-row items-center justify-center gap-x-2">
+              <View className="mb-8 h-12 w-12 items-center justify-center rounded-full bg-white">
+                <Ionicons name="water" size={24} color="#dc2626" />
+              </View>
+              <Text className="mb-8 text-3xl font-black text-white">BloodBooth</Text>
             </View>
-            <Text className="mb-3 text-5xl font-black text-white">BloodBooth</Text>
-            <Text className="text-lg font-medium text-white/80">
-              Sign in to continue saving lives
-            </Text>
           </View>
 
           {/* Form Card */}
-          <View className="rounded-t-[40px] bg-white px-8 pb-8 pt-10">
+          <View className="rounded-3xl bg-white px-6 pb-8 pt-10">
             <View className="mb-8">
               <Text className="mb-1 text-2xl font-bold text-gray-900">Login</Text>
               <Text className="text-base text-gray-500">Enter your credentials below</Text>
@@ -75,7 +82,9 @@ export default function LoginScreen() {
 
               {/* Forgot Password */}
               <View className="items-end">
-                <Link href="/auth/forgot-password" className="text-sm font-semibold text-[#dc2626]">
+                <Link
+                  href="/(auth)/forgot-password"
+                  className="text-sm font-semibold text-[#dc2626]">
                   Forgot Password?
                 </Link>
               </View>
@@ -122,7 +131,7 @@ export default function LoginScreen() {
             {/* Sign Up Link */}
             <View className="flex-row justify-center gap-x-1">
               <Text className="text-base text-gray-600">Don&apos;t have an account?</Text>
-              <Link href="/auth/signup" className="text-base font-bold text-[#dc2626]">
+              <Link href="/(auth)/signup" className="text-base font-bold text-[#dc2626]">
                 Sign Up
               </Link>
             </View>

@@ -131,7 +131,7 @@ export default function HomeScreen() {
           </View>
 
           {/* Blood Type Grid */}
-          <View className="flex-row flex-wrap justify-center gap-4">
+          <View className="flex-row flex-wrap justify-between gap-3">
             {bloodTypes.map((bloodType) => (
               <Pressable
                 key={bloodType}

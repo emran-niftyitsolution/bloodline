@@ -1,9 +1,9 @@
-import { View, Text, ScrollView, Pressable, Image } from 'react-native';
-import { LinearGradient } from 'expo-linear-gradient';
 import Ionicons from '@expo/vector-icons/Ionicons';
-import { StatusBar } from 'expo-status-bar';
-import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import { LinearGradient } from 'expo-linear-gradient';
 import { useRouter } from 'expo-router';
+import { StatusBar } from 'expo-status-bar';
+import { Pressable, ScrollView, Text, View } from 'react-native';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 export default function SettingsScreen() {
   const router = useRouter();
@@ -54,7 +54,6 @@ export default function SettingsScreen() {
 
           {/* Content Card */}
           <View className="rounded-3xl bg-white px-8 py-10">
-
             {/* Settings Options */}
             <View className="gap-y-4">
               {/* Profile */}
@@ -102,7 +101,7 @@ export default function SettingsScreen() {
 
               {/* Logout */}
               <Pressable
-                onPress={() => router.push('/auth/login')}
+                onPress={() => router.push('/(auth)/login')}
                 className="mt-4 flex-row items-center justify-center rounded-xl border border-red-200 bg-red-50 px-4 py-4">
                 <Ionicons name="log-out-outline" size={24} color="#dc2626" />
                 <Text className="ml-3 text-base font-semibold text-[#dc2626]">Logout</Text>
@@ -114,4 +113,3 @@ export default function SettingsScreen() {
     </View>
   );
 }
-

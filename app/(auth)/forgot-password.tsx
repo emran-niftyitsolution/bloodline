@@ -10,7 +10,12 @@ export default function ForgotPasswordScreen() {
   const insets = useSafeAreaInsets();
 
   return (
-    <View className="flex-1" style={{ paddingTop: insets.top || 0 }}>
+    <View
+      className="flex-1"
+      style={{
+        paddingTop: insets.top || 0,
+        paddingBottom: insets.bottom || 0,
+      }}>
       <StatusBar style="light" translucent backgroundColor="transparent" />
       <LinearGradient
         colors={['#dc2626', '#991b1b', '#7f1d1d']}
@@ -20,20 +25,19 @@ export default function ForgotPasswordScreen() {
       />
 
       <ScrollView className="flex-1" contentContainerStyle={{ flexGrow: 1 }}>
-        <View className="flex-1 px-4 pb-10 pt-20">
+        <View className="flex-1 pb-10 pt-4">
           {/* Top Section with Logo */}
-          <View className="mb-12 items-center">
-            <View className="mb-8 h-20 w-20 items-center justify-center rounded-full bg-white">
-              <Ionicons name="water" size={44} color="#dc2626" />
+          <View className="items-center">
+            <View className="mb-6 flex-row items-center justify-center gap-x-2">
+              <View className="h-12 w-12 items-center justify-center rounded-full bg-white">
+                <Ionicons name="water" size={24} color="#dc2626" />
+              </View>
+              <Text className="text-3xl font-black text-white">BloodBooth</Text>
             </View>
-            <Text className="mb-3 text-5xl font-black text-white">BloodBooth</Text>
-            <Text className="text-lg font-medium text-white/80">
-              Reset your password to continue
-            </Text>
           </View>
 
           {/* Form Card */}
-          <View className="rounded-[40px] bg-white px-8 pb-8 pt-10">
+          <View className="rounded-3xl bg-white px-6 pb-8 pt-10">
             <View className="mb-8">
               <Text className="mb-1 text-2xl font-bold text-gray-900">Forgot Password</Text>
               <Text className="text-base text-gray-500">
@@ -59,7 +63,7 @@ export default function ForgotPasswordScreen() {
 
               {/* Send OTP Button */}
               <Pressable
-                onPress={() => router.push('/auth/login')}
+                onPress={() => router.push('/(auth)/login')}
                 className="mt-2 overflow-hidden rounded-xl active:opacity-90">
                 <LinearGradient
                   colors={['#dc2626', '#b91c1c']}
@@ -78,7 +82,7 @@ export default function ForgotPasswordScreen() {
             {/* Sign In Link */}
             <View className="mt-8 flex-row justify-center gap-x-1">
               <Text className="text-base text-gray-600">Remember your password?</Text>
-              <Link href="/auth/login" className="text-base font-bold text-[#dc2626]">
+              <Link href="/(auth)/login" className="text-base font-bold text-[#dc2626]">
                 Sign In
               </Link>
             </View>

@@ -66,7 +66,7 @@ export default function DonationHistoryScreen() {
           paddingBottom: 16,
           zIndex: 10,
         }}>
-          <View className="flex-row items-center justify-between">
+        <View className="flex-row items-center justify-between">
           <Pressable
             onPress={() => router.back()}
             className="h-10 w-10 items-center justify-center rounded-full bg-white/20">
