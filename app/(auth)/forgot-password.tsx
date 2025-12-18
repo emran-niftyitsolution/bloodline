@@ -25,7 +25,7 @@ export default function ForgotPasswordScreen() {
       />
 
       <ScrollView className="flex-1" contentContainerStyle={{ flexGrow: 1 }}>
-        <View className="flex-1 pb-10 pt-4">
+        <View className="min-h-screen flex-1 flex-col pb-10 pt-4">
           {/* Top Section with Logo */}
           <View className="items-center">
             <View className="mb-6 flex-row items-center justify-center gap-x-2">
@@ -37,7 +37,7 @@ export default function ForgotPasswordScreen() {
           </View>
 
           {/* Form Card */}
-          <View className="rounded-3xl bg-white px-6 pb-8 pt-10">
+          <View className="flex-1 rounded-t-3xl bg-white px-6 pb-8 pt-10">
             <View className="mb-8">
               <Text className="mb-1 text-2xl font-bold text-gray-900">Forgot Password</Text>
               <Text className="text-base text-gray-500">
